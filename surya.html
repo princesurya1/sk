@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600&family=Open+Sans&display=swap"
+    rel="stylesheet">
+
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Crimson+Pro">
+  <title>Diwali</title>
+
+  <style>
+    * {
+      position: relative;
+    }
+
+    body {
+      padding: 0%;
+      margin: 0%;
+      box-sizing: border-box;
+      background-color: rgb(218, 140, 50);
+    }
+
+    form {
+      width: 20%;
+      height: 15vh;
+      display: block;
+      align-items: center;
+      justify-content: center;
+      padding: 35px 25px 50px;
+      margin: 10% auto;
+      position: relative;
+      border-radius: 15px;
+      box-shadow: 0 0 50px rgba(0, 0, 0, 0.493);
+      background-color: rgb(199, 199, 8);
+    }
+
+    #name {
+      width: 100%;
+      height: 30px;
+      font-size: 1rem;
+      text-align: left;
+      color: rgb(0, 0, 0);
+      outline: none;
+      border: none;
+      border-bottom: 1px solid rgba(48, 48, 48, 0.377);
+      background-color: rgb(199, 199, 8);
+      font-family: 'Open Sans', sans-serif;
+      font-weight: 500;
+    }
+
+    #submit {
+      width: 80%;
+      margin-top: 50px;
+      position: absolute;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      padding: 7px 14px;
+      border-radius: 15px;
+      border: 1px solid rgb(218, 140, 50);
+      background-color: rgb(218, 140, 50);
+      color: black;
+      font-weight: 600;
+      transition: .3s all;
+    }
+
+    #submit:hover {
+      background-color: rgb(199, 199, 8);
+      transition: .3s all;
+      color: rgb(95, 95, 95);
+    }
+
+    #para {
+      color: rgb(13, 33, 46);
+      font-family: 'Open Sans', sans-serif;
+    }
+
+    #newElement {
+      width: 100vw;
+      height: 100vh;
+      text-align: center;
+      flex-direction: column;
+      position: absolute;
+      top: 0%;
+      left: 0%;
+      margin-top: -10%;
+      display: none;
+      background-image: url(diwali.jpg);
+      background-repeat: no-repeat;
+      background-position: center;
+      background-attachment: fixed;
+      background-size: cover;
+      z-index: 100;
+    }
+
+    #newElement div {
+      margin-top: 10%;
+    }
+
+    #newElement h1 {
+      font-family: 'Dancing Script', cursive;
+      font-weight: bolder;
+      color: white;
+      text-shadow: 0 0 12px yellow;
+      font-size: 4.5rem;
+      margin: 0%;
+
+    }
+
+    #newElement h2 {
+      color: rgb(255, 254, 192);
+      font-size: 5rem;
+      font-family: Script MT;
+      margin: 0%;
+      text-shadow: 0 0 10px rgb(255, 0, 0);
+    }
+
+    img {
+      border-radius: 20px;
+      box-shadow: 0 0 25px rgb(255, 0, 0);
+    }
+
+    @media only screen and (max-width : 992px) {
+      body {
+        overflow-x: hidden !important;
+      }
+
+      form {
+        width: 80%;
+        height: 20vh;
+      }
+
+      #newElement h1 {
+        font-size: 2.8rem;
+      }
+
+      #newElement h2 {
+        font-size: 2.5rem;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <form>
+    <input type="text" name="text" id="name" placeholder="Enter Your Name">
+    <p id="#"></p>
+    <input type="submit" value="Submit" id="submit">
+  </form>
+
+  <div id="newElement">
+    <div>
+      <img src="D:\new festival\bhai.jpg" alt="" width="100">
+      <h1 id="#">Happy birthday</h1>
+      <h2 id="jsInsert"></h2>
+
+      <video loop id="myVideo">
+        <source src="D:\new festival\chati chiri1.mp3" type="video/mp4">
+        Your browser does not support HTML5 video.
+    
+
+    </div>
+  </div>
+
+  <script>
+
+    let name = document.getElementById('name');
+    let submit = document.getElementById('submit');
+    let form = document.getElementById('form')
+    let body = document.querySelector('body');
+    let jsInsert = document.querySelector('#jsInsert')
+    let newElement = document.getElementById('newElement');
+
+
+    submit.addEventListener('click', function (a) {
+      a.preventDefault();
+
+      let para = document.getElementById('#');
+
+      if (name.value === '') {
+        para.innerHTML = '* Enter Your Name';
+      } else {
+        newElement.style.display = 'block';
+        jsInsert.innerHTML = `${name.value}`;
+        playVideo();
+        animatedtext();
+      }
+
+      function playVideo() {
+        document.getElementById('myVideo').play();
+      }
+
+    });
+
+  </script>
+
+</body>
+
+</html>
